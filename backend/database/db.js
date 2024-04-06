@@ -7,3 +7,4 @@ const conn = mysql.createPool({
     database: 'myexpenses'
 });
 
+conn.query();
