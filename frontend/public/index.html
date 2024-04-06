@@ -4,12 +4,28 @@
     </head>
     <body>
         <div id="login">
-            <form method = "POST" action="home.html">
+            <form method = "POST" id="login_form">
                 <input type="text" id="username" placeholder="Username"><br>
                 <input type="password" id="password" placeholder="Password"><br>
-                <input type="submit" value="Accedi">
+                <button type="submit" id="accesso">Accedi</button>
                 <p>Oppure <a href="registrazione.html">Registrati</a></p>
         </form>
+        <script>
+            document.getElementById("login_form").addEventListener("submit", function(event){
+                event.preventDefault();
+
+                const formData = new FormData(event.target);
+                
+                const jsonData = {};
+                formData.forEach((value, key) => {
+                    jsonData[key] = value;
+                });
+
+                const username = formData.get('username');
+                const password = formData.get('password');
+            })
+
+        </script>
         </div>
     </body>
 </html>
