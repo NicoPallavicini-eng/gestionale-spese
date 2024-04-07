@@ -7,7 +7,7 @@
             <form method = "POST" id="login_form">
                 <input type="text" id="username" placeholder="Username"><br>
                 <input type="password" id="password" placeholder="Password"><br>
-                <button type="submit" id="accesso">Accedi</button>
+                <input type="submit" id="accesso" value="Accedi">
                 <p>Oppure <a href="registrazione.html">Registrati</a></p>
         </form>
         <script>
@@ -23,6 +23,7 @@
 
                 const username = formData.get('username');
                 const password = formData.get('password');
+                window.location.href = "https://www.google.com";
             })
 
         </script>
