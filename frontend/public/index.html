@@ -21,10 +21,23 @@
                     jsonData[key] = value;
                 });
 
-                const username = formData.get('username');
-                const password = formData.get('password');
-                window.location.href = "https://www.google.com";
-            })
+                fetch('/checkLogin',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(jsonData)
+                }).then(Response => {
+                    if(Response.ok) {
+                        console.log('Dati Ricevuti correttamente');
+                        window.location.href = "public/home.html";
+                    } else{
+                        console.errore('Dati non ricevuti.');
+                    }
+                }).catch(error=> {
+                    console.error('Error:', error);
+                });
+            });
 
         </script>
         </div>
