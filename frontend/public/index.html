@@ -4,42 +4,12 @@
     </head>
     <body>
         <div id="login">
-            <form method = "POST" id="login_form">
+            <form method = "POST" id="login_form" action="/login">
                 <input type="text" id="username" placeholder="Username"><br>
                 <input type="password" id="password" placeholder="Password"><br>
                 <input type="submit" id="accesso" value="Accedi">
                 <p>Oppure <a href="registrazione.html">Registrati</a></p>
-        </form>
-        <script>
-            document.getElementById("login_form").addEventListener("submit", function(event){
-                event.preventDefault();
-
-                const formData = new FormData(event.target);
-                
-                const jsonData = {};
-                formData.forEach((value, key) => {
-                    jsonData[key] = value;
-                });
-
-                fetch('/checkLogin',{
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(jsonData)
-                }).then(Response => {
-                    if(Response.ok) {
-                        console.log('Dati Ricevuti correttamente');
-                        window.location.href = "public/home.html";
-                    } else{
-                        console.errore('Dati non ricevuti.');
-                    }
-                }).catch(error=> {
-                    console.error('Error:', error);
-                });
-            });
-
-        </script>
+            </form>
         </div>
     </body>
 </html>
